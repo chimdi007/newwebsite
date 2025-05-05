@@ -6,7 +6,7 @@ const TopUp = () => {
   const [formData, setFormData] = useState({
     ppn: "",
     patient: "",
-    public_key: "",
+    paystackPublicKey: "",
     email: "",
     amount: "",
     description: "",
@@ -26,7 +26,7 @@ const TopUp = () => {
       if (!formData.ppn) return;
   
       if (formData.ppn.length !== 10) {
-        setFormData((prev) => ({ ...prev, patient: "", public_key: "" }));
+        setFormData((prev) => ({ ...prev, patient: "", paystackPublicKey: "" }));
         return;
       }
   
@@ -90,7 +90,7 @@ const TopUp = () => {
         return;
       }
 
-      if (!formData.public_key || !formData.ppn || !formData.amount) {
+      if (!formData.paystackPublicKey || !formData.ppn || !formData.amount) {
         alert("Incomplete payment data. Please try again.");
         return;
       }
@@ -98,7 +98,7 @@ const TopUp = () => {
       const paystackAmount = parseInt(formData.amount) * 100;
 
       const handler = window.PaystackPop.setup({
-        key: formData.public_key,
+        key: formData.paystackPublicKey,
         email: formData.email,
         amount: paystackAmount,
         currency: "NGN",
