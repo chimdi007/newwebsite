@@ -3,11 +3,11 @@ import { NextRequest, NextResponse } from 'next/server';
 export async function GET(req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url);
-    let shareCode = searchParams.get('shareCode');
+    const shareCode = searchParams.get('shareCode');
 
     if (shareCode===null) {
-      shareCode = 'all';
-      //return NextResponse.json({ message: 'Missing shareCode parameter' }, { status: 400 });
+      //shareCode = 'all';
+      return NextResponse.json({ message: 'Missing shareCode parameter' }, { status: 400 });
     }
 
     

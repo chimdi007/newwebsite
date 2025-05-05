@@ -73,10 +73,19 @@ const SaveALife = () => {
     setSelectedPatient({ ...selectedPatient, [e.target.name]: e.target.value });
   };
 
+  
   const handleFetchPatientsInNeed = async () => {
+    const searchParameter = selectedPatient.shareCode?.trim() || "random";
+
+  // Validate only if it's not the special 'random' keyword
+  if (searchParameter !== "random" && (searchParameter.length !== 6)) {// || !/^\d{6}$/.test(searchParameter))) {
+    //alert("Share code must be exactly 6 digits.");
+    return;
+  }
+
     try {
       const res = await fetch(
-        `/api/web/save_a_life?shareCode=${encodeURIComponent(selectedPatient.shareCode)}`,
+        `/api/web/save_a_life?shareCode=${encodeURIComponent(searchParameter)}`,
         {
           method: "GET",
           headers: {
@@ -107,6 +116,63 @@ const SaveALife = () => {
       }
     }
   };
+
+
+  useEffect(() => {
+    
+      const searchParameter = selectedPatient.shareCode?.trim() || "random";
+  
+    // Validate only if it's not the special 'random' keyword
+    if (searchParameter !== "random" && (searchParameter.length !== 6 || !/^\d{6}$/.test(searchParameter))) {
+      //alert("Share code must be exactly 6 digits.");
+      return;
+    }
+
+    const handleFetchRandomPatientsInNeed = async () => {
+      const searchParameter = selectedPatient.shareCode?.trim() || "random";
+  
+    // Validate only if it's not the special 'random' keyword
+    if (searchParameter !== "random" && (searchParameter.length !== 6)) {// || !/^\d{6}$/.test(searchParameter))) {
+      //alert("Share code must be exactly 6 digits.");
+      return;
+    }
+  
+      try {
+        const res = await fetch(
+          `/api/web/save_a_life?shareCode=${encodeURIComponent(searchParameter)}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+  
+        const contentType = res.headers.get("content-type");
+        const raw = await res.text();
+  
+        if (!contentType || !contentType.includes("application/json")) {
+          throw new Error("Invalid server response");
+        }
+  
+        const patients = JSON.parse(raw) as { patientsList: Patient[] };
+  
+        if (!res.ok) {
+          throw new Error(patients as unknown as string);
+        }
+  
+        setPatientsList(patients.patientsList);
+      } catch (err) {
+        if (err instanceof Error) {
+          console.error("Fetch error:", err.message);
+        } else {
+          console.error("Unknown error occurred");
+        }
+      }
+    };
+  
+    handleFetchRandomPatientsInNeed();
+  }, [selectedPatient.shareCode]);
   
   
   useEffect(() => {
