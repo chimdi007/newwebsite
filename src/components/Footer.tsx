@@ -139,7 +139,7 @@ const Footer = () => {
               height={32}
               className="mr-2"
             />
-                <span>(+234) 813 644 5612</span>
+                <span>(+234) 803 826 6633</span>
               </li>
               <li className="flex items-start">
               <Image
@@ -149,7 +149,7 @@ const Footer = () => {
               height={32}
               className="mr-2"
             />
-                <span>prescribeng@gmail.com</span>
+                <span>info@prescribe.ng</span>
               </li>
               <li className="flex items-start">
                 <Image
@@ -159,7 +159,7 @@ const Footer = () => {
                   height={32}
                   className="mr-2"
                 />
-                <span>24, anywhere street, surulere, Lagos-NIgeria.</span>
+                <span>NO. 13 WORUKWO STREET, OFF ST JOHN BUS STOP D/LINE BY ABA ROAD, PORT HARCOURT , RIVERS STATE, NIGERIA</span>
               </li>
             </ul>
           </div>
