@@ -63,7 +63,7 @@ const VerifyLetter = () => {
                 type="submit"
                 className="w-[] bg-[#0077B6] flex justify-end text-white py-2 px-2 rounded-md hover:bg-[#e35c00] transition"
               >
-                Verify
+                Proceed to Payment
               </button>
             </form>
           )}

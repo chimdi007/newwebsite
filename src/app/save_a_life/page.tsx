@@ -34,22 +34,22 @@ declare global {
 const SaveALife = () => {
   const [currentPage, setCurrentPage] = useState<"home" | "donationForm">("home");
   const [patientsList, setPatientsList] = useState<Patient[]>([
-    {
-      name: "Aisha Bello",
-      shareCodeReason: "₦1,200,000",
-      credit: "₦450,000 | 37%",
-      image: "/image 4.svg",
-      shareCode: "123456",
-      location: "Lagos, Nigeria",
-    },
-    {
-      name: "Michael Adewale",
-      shareCodeReason: "Needs ₦2,500,000 for kidney transplant",
-      credit: "₦850,000 | 34%",
-      image: "/image-3.svg",
-      shareCode: "123456",
-      location: "Lagos, Nigeria",
-    },
+    //{
+    //  name: "Aisha Bello",
+    //  shareCodeReason: "₦1,200,000",
+    //  credit: "₦450,000 | 37%",
+    //  image: "/image 4.svg",
+    //  shareCode: "123456",
+    //  location: "Lagos, Nigeria",
+    //},
+    //{
+    //  name: "Michael Adewale",
+    //  shareCodeReason: "Needs ₦2,500,000 for kidney transplant",
+    //  credit: "₦850,000 | 34%",
+    //  image: "/image-3.svg",
+    //  shareCode: "123456",
+    //  location: "Lagos, Nigeria",
+    //},
   ]);
 
   const [selectedPatient, setSelectedPatient] = useState<Patient>({
