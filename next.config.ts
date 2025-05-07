@@ -15,9 +15,9 @@ const nextConfig = {
   reactStrictMode: true,
   // ✅ Add image domains here
   images: {
-    domains: ['pikaso.cdnpk.net'], // Add any other external image domains as needed
+    domains: ['pikaso.cdnpk.net', 's3.af-south-1.amazonaws.com'], // Add any other external image domains as needed
   },
-  
+
   async rewrites() {
     return [
       {
