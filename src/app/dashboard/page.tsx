@@ -197,9 +197,12 @@ const Dashboard = () => {
                 <>
                   <Image
                     src={userData.photoUrl}
-                    alt="Profile"
+                    alt={"Profile"}
+                    width={342}
+                    height={178}
                     className="w-[329px] h-[329px] rounded-full object-cover"
                   />
+                  
                   <button
                     className="absolute bottom-3 right-3 bg-white rounded-full p-2 shadow-md hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
                     onClick={() => {
